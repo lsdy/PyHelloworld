@@ -6,16 +6,24 @@ Created on 2018年2月8日
 @author: jacket
 '''
 import os
+import sys
 
 def openFile(filename):
     f=open(filename,'r')
-    print(f.read())
+    fCon=f.read()
+    print(fCon)
     f.close()
+    return fCon
 
 def modifyFile(filename):
     print(filename)
     openFile(filename)
     
+#修改路径
+destPath=sys.argv[1]
+print(destPath)
+srcFile=sys.argv[2]
+print(srcFile)
 
 all_file = os.listdir('./')
 
