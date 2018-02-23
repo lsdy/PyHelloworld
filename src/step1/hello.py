@@ -29,8 +29,10 @@ def openFile(filename):
 
 #判断是否以及存在注释
 def isContainCommentForCPP(fileText):
-#     re.match(pattern, string, flags)
-    return True
+#     print re.match(r"\s*/\*[\w\W]*?\*/",fileText).span()
+#     print re.match(r'\s*(//.*\s*)*', fileText).span()
+    return (re.match(r"\s*/\*[\w\W]*?\*/",fileText)!=None) \
+        or(re.match(r'\s*(//.*\s*)*', fileText)!=None);
 
 #判断是否为Cpp的文件0     
 def isCppFile(filename):
