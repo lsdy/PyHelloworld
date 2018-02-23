@@ -5,7 +5,8 @@ Created on 2018年2月8日
 
 @author: jacket
 
-@note: This is a tool to add comment to Cpp files (temporarily).
+@note: This is a tool to add comment to Cpp files (temporarily). \
+Next,I will achieve replace the method to add comment
 
 @version: 2.0
 '''
