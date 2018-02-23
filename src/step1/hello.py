@@ -57,13 +57,20 @@ def fileType(filepath):
         return UNKOWN
 
 
+
 def modifyFileRecursion(destPath,srcFile,comment):
     all_file = os.listdir(destPath)
     # print(all_file)
     for each_file in all_file:
+        #忽略.*的文件或目录下的所有文件
+        if(each_file.startswith('.')):
+            continue
+        
         OneDir=destPath+each_file;
         
         filetype=fileType(OneDir)
+        
+        
         if filetype==FILE:
             if srcFile!=OneDir:
                 print OneDir
