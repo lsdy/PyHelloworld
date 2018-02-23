@@ -45,9 +45,13 @@ def isCppFile(filename):
 def modifyCPPFile(filename,comment):
 #     print(filename)
     current_file_content=openFile(filename)
+    #如果已经存在注释则跳过
+    if(isContainCommentForCPP(current_file_content)):
+        return
     new_file_content=comment+current_file_content
     f=open(filename,'w')
     f.write(new_file_content)
+    f.close()
     
 def fileType(filepath):
     if os.path.isdir(filepath):
