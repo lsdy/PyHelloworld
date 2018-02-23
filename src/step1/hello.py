@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # coding=utf-8
 '''
 Created on 2018年2月8日
@@ -20,8 +20,12 @@ def openFile(filename):
     f.close()
     return fCon
 
-
-def modifyFile(filename,comment):
+#判断是否以及存在注释
+def isContainCommentForCPP(fileText):
+    curline=fileText.readline()
+    
+#修改CPP或C类型的注释
+def modifyCPPFile(filename,comment):
 #     print(filename)
     current_file_content=openFile(filename)
     new_file_content=comment+current_file_content
@@ -49,8 +53,8 @@ def modifyFileRecursion(destPath):
         filetype=fileType(OneDir)
         if filetype==FILE:
             if srcFile!=OneDir:
-                print 'Modify '+destPath+each_file
-                modifyFile(destPath+each_file,comment)
+                print 'Modify '+OneDir
+                modifyCPPFile(OneDir,comment)
         elif filetype==DIR:
             modifyFileRecursion(OneDir+'/')
             
@@ -59,7 +63,7 @@ all_argv=sys.argv
 # print(all_argv)
 if len(all_argv) < 3 :
     print 'Argments Input Wrong!'
-    exit(1)
+    sys.exit(1)
 
 destPath=sys.argv[1]
 # print(destPath)
@@ -70,4 +74,4 @@ comment=openFile(srcFile)
 
 modifyFileRecursion(destPath)
 
-exit(0)
+sys.exit(0)
