@@ -4,6 +4,10 @@
 Created on 2018年2月8日
 
 @author: jacket
+
+@note: This is a tool to add comment to Cpp files (temporarily).
+
+@version: 2.0
 '''
 import os
 import re
