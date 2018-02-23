@@ -5,7 +5,7 @@ Created on 2018年2月23日
 
 @author: jacket
 '''
-from src.step1.hello import isCppFile 
+from src.tools.hello import isCppFile 
  
 
 print 'Cpp File name test'

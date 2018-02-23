@@ -8,7 +8,7 @@ Created on 2018年2月23日
 
 
 import unittest
-from src.step1.hello import isContainCommentForCPP,openFile
+from src.tools.hello import isContainCommentForCPP,openFile
 
 fileText=openFile("/home/jacket/Server/src/main.cpp")
 # print fileText
