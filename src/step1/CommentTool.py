@@ -7,6 +7,7 @@ Created on 2018年2月8日
 '''
 import os
 import re
+import sys
 
 CppSuffixList=['cpp','c','cc','hpp','h']
 
@@ -79,11 +80,34 @@ def modifyFileRecursion(destPath,srcFile,comment):
         
         if filetype==FILE:
             if srcFile!=OneDir:
-                print OneDir
+#                 print OneDir
                 if isCppFile(OneDir):
-                    print 'Modify '+OneDir
+#                     print 'Modify '+OneDir
                     modifyCPPFile(OneDir,comment)
         elif filetype==DIR:
             modifyFileRecursion(OneDir+'/',srcFile,comment)
             
-            
+def main():
+    #修改路径
+    all_argv=sys.argv
+    # print(all_argv)
+    if len(all_argv) < 3 :
+        print 'Argments Input Wrong!'
+        sys.exit(1)
+    
+    destPath=sys.argv[1]
+    # print(destPath)
+    
+    srcFile=sys.argv[2]
+    
+    srcFile=getAbsFilePath(srcFile)
+#     print(srcFile)
+    
+    comment=openFile(srcFile)
+#     print comment #我确定输入比如：./Comment也可以打开对应文件
+    modifyFileRecursion(destPath,srcFile,comment)
+    
+    sys.exit(0)
+    
+if __name__=='__main__':
+    main()        
