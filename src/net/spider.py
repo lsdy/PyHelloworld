@@ -18,15 +18,12 @@ def main():
     response=urllib2.urlopen(url)
     html=response.read()
 #     print html
-#     htmlWithutf8=html.decode("gbk")
-    
-#     print htmlWithutf8
     soup=BeautifulSoup(html,"lxml")
     
     
     # print type(soup.html.meta) #<class 'bs4.element.Tag'>获得其在python的类型
     # print soup.html.name.name #如果xml有个标记<name></name>那会发生不能找到该节点的错误，因为已经被Tag的name属性占用
-    print soup #这个时候又还没转
+#     print soup #bs4已经完成转码了
     print soup.html.head.meta
     print soup.html.head.meta.attrs
     
