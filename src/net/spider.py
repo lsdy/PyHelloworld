@@ -9,18 +9,20 @@ import urllib2
 import urllib
 import sys
 from bs4 import BeautifulSoup
+import bs4
+from platform import node
 
 
 def recurse(node):
     a=type(node)
 #     print a
-    if(str(a)=="<class 'bs4.element.Tag'>"):
+    if a==bs4.element.Tag:
 #         print node.name
         for child in node:
             recurse(child)
-    elif (str(a)=="<class 'bs4.element.NavigableString'>"):
+    elif a==bs4.element.NavigableString:
        print node.string
-       print node
+       
         
 
                 
