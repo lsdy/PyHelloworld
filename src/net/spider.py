@@ -21,7 +21,9 @@ def recurse(node):
         for child in node:
             recurse(child)
     elif a==bs4.element.NavigableString:
-       print node.string
+#         print node.parent.attr
+#         print node.string
+        pass
        
         
 
@@ -41,14 +43,16 @@ def main():
 #     print html
     soup=BeautifulSoup(html,"lxml")
     
-    
+#     print soup.prettify()
+    div=soup.find('div', class_='article_texttitleb')
+    print div
     # print type(soup.html.meta) #<class 'bs4.element.Tag'>获得其在python的类型
     # print soup.html.name.name #如果xml有个标记<name></name>那会发生不能找到该节点的错误，因为已经被Tag的name属性占用
 #     print soup #bs4已经完成转码了
 #     print soup.html.center
 #     print soup.html.head.meta.attrs
     start=soup.html.body.center
-    print type(start)
+#     print type(start)
     for child in start:
 #         print child
 #         print "==========================================="
