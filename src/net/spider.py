@@ -37,15 +37,19 @@ def main():
 #     data = urllib.urlencode(values) 
 #     print data
     data=None
-    request=urllib2.Request(url,data,headers)
+    host='221.164.12.80'
+    request=urllib2.Request(url,data,headers,host)
     response=urllib2.urlopen(request)
     html=response.read()
 #     print html
     soup=BeautifulSoup(html,"lxml")
     
 #     print soup.prettify()
-    div=soup.find('div', class_='article_texttitleb')
-    print div
+    divs=soup.find_all('div')
+    for item in divs:
+        print item
+        print '\n\n\n'
+        pass
     # print type(soup.html.meta) #<class 'bs4.element.Tag'>获得其在python的类型
     # print soup.html.name.name #如果xml有个标记<name></name>那会发生不能找到该节点的错误，因为已经被Tag的name属性占用
 #     print soup #bs4已经完成转码了
