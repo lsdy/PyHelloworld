@@ -25,8 +25,14 @@ def recurse(node):
 #         print node.string
         pass
        
-        
-
+def isContainChild(node):
+    print node
+    result=False
+    for  child in node:
+        print child
+        result=True
+        break
+    return result
                 
 def main():
     # type=sys.getfilesystemencoding()
