@@ -41,13 +41,14 @@ class Test(unittest.TestCase):
 #         testdiv='<div class="nav">'
         testdiv='''
         <div class="nav_1">
-        <a href="/">首页</a>
-        <a href="/paihang.html">排行榜</a>
-        <a href="javascript:;" onclick="AddFavorite('http://www.shenpinwu.com','神品屋')">收藏神品屋</a>
+        <a>
+        <p></p>
+        </a>
         </div>
         '''
         node=BeautifulSoup(testdiv,'lxml')
-        result=spider.isContainChild(node.html.body)
+        print node.prettify()
+        result=spider.isContainChild(node.html.body.div)
         print result
         pass
 
